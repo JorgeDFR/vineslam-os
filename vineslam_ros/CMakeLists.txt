@@ -3,6 +3,7 @@ project(vineslam_ros)
 
 # Default to C++17
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_BUILD_TYPE Release)
 
 option(LIDAR_TYPE "Type of Lidar" 0)
 add_definitions(-DLIDAR_TYPE=${LIDAR_TYPE})
@@ -47,7 +48,7 @@ set(dependencies
         "std_msgs"
         "sensor_msgs"
         "nav_msgs"
-		"vision_msgs"
+	"vision_msgs"
         "visualization_msgs"
         "interactive_markers"
         "tf2"

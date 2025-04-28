@@ -109,229 +109,229 @@ void SLAMNode::loadParameters(Parameters& params)
 
   // Load params
   param = "lidar_sensor_frame";
-  this->declare_parameter(param);
+  this->declare_parameter<std::string>(param, "");
   if (!this->get_parameter(param, params.lidar_sensor_frame_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "world_frame_id";
-  this->declare_parameter(param);
+  this->declare_parameter<std::string>(param, "");
   if (!this->get_parameter(param, params.world_frame_id_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "base_frame_id";
-  this->declare_parameter(param);
+  this->declare_parameter<std::string>(param, "");
   if (!this->get_parameter(param, params.base_frame_id_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "odom_frame_id";
-  this->declare_parameter(param);
+  this->declare_parameter<std::string>(param, "");
   if (!this->get_parameter(param, params.odom_frame_id_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "imu_sensor_frame";
-  this->declare_parameter(param);
+  this->declare_parameter<std::string>(param, "");
   if (!this->get_parameter(param, params.imu_sensor_frame_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "use_lidar_features";
-  this->declare_parameter(param);
+  this->declare_parameter<bool>(param, true);
   if (!this->get_parameter(param, params.use_lidar_features_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "use_vertical_planes";
-  this->declare_parameter(param);
+  this->declare_parameter<bool>(param, false);
   if (!this->get_parameter(param, params.use_vertical_planes_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "use_ground_plane";
-  this->declare_parameter(param);
+  this->declare_parameter<bool>(param, false);
   if (!this->get_parameter(param, params.use_ground_plane_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "use_gps";
-  this->declare_parameter(param);
+  this->declare_parameter<bool>(param, false);
   if (!this->get_parameter(param, params.use_gps_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "use_gps_altitude";
-  this->declare_parameter(param);
+  this->declare_parameter<bool>(param, false);
   if (!this->get_parameter(param, params.use_gps_altitude_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "use_gps_heading";
-  this->declare_parameter(param);
+  this->declare_parameter<bool>(param, false);
   if (!this->get_parameter(param, params.use_gps_heading_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "use_imu";
-  this->declare_parameter(param);
+  this->declare_parameter<bool>(param, false);
   if (!this->get_parameter(param, params.use_imu_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "use_gyroscope";
-  this->declare_parameter(param);
+  this->declare_parameter<bool>(param, false);
   if (!this->get_parameter(param, params.use_gyroscope_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "heading_offset";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.heading_offset_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "imu_roll_offset";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.imu_roll_offset_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "imu_pitch_offset";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.imu_pitch_offset_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "publish_level";
-  this->declare_parameter(param);
+  this->declare_parameter<int>(param, 0);
   if (!this->get_parameter(param, params.publish_level_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "robot_dimensions.x";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.robot_dim_x_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "robot_dimensions.y";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.robot_dim_y_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "robot_dimensions.z";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.robot_dim_z_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
-  param = "multilayer_mapping.datum.latitude";
-  this->declare_parameter(param);
-  if (!this->get_parameter(param, params.map_datum_lat_))
-  {
-    RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
-  }
-  param = "multilayer_mapping.datum.longitude";
-  this->declare_parameter(param);
-  if (!this->get_parameter(param, params.map_datum_long_))
-  {
-    RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
-  }
-  param = "multilayer_mapping.datum.altitude";
-  this->declare_parameter(param);
-  if (!this->get_parameter(param, params.map_datum_alt_))
-  {
-    RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
-  }
   param = "multilayer_mapping.grid_map.origin.z";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.gridmap_origin_z_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "multilayer_mapping.grid_map.height";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.gridmap_height_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "multilayer_mapping.grid_map.resolution";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.gridmap_resolution_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
+  param = "multilayer_mapping.datum.latitude";
+  this->declare_parameter<double>(param, 0.0);
+  if (!this->get_parameter(param, params.map_datum_lat_))
+  {
+    RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
+  }
+  param = "multilayer_mapping.datum.longitude";
+  this->declare_parameter<double>(param, 0.0);
+  if (!this->get_parameter(param, params.map_datum_long_))
+  {
+    RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
+  }
+  param = "multilayer_mapping.datum.altitude";
+  this->declare_parameter<double>(param, 0.0);
+  if (!this->get_parameter(param, params.map_datum_alt_))
+  {
+    RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
+  }
   param = "multilayer_mapping.topological_map.autogen_topological_map";
-  this->declare_parameter(param);
+  this->declare_parameter<bool>(param, false);
   if (!this->get_parameter(param, params.autogen_topological_map_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "multilayer_mapping.topological_map.folder";
-  this->declare_parameter(param);
+  this->declare_parameter<std::string>(param, "");
   if (!this->get_parameter(param, params.topological_map_folder_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "multilayer_mapping.topological_map.dimensions.x";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.topological_map_dim_x_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "multilayer_mapping.topological_map.dimensions.y";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.topological_map_dim_y_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "multilayer_mapping.topological_map.dimensions.square_size";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.topological_map_dim_square_size_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "pf.n_particles";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.number_particles_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "pf.sigma_xx";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.sigma_xx_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "pf.sigma_yy";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.sigma_yy_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "pf.sigma_zz";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.sigma_zz_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "pf.sigma_RR";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.sigma_RR_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "pf.sigma_PP";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.sigma_PP_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "pf.sigma_YY";
-  this->declare_parameter(param);
+  this->declare_parameter<double>(param, 0.0);
   if (!this->get_parameter(param, params.sigma_YY_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
@@ -367,7 +367,7 @@ void SLAMNode::loadMaps()
 void SLAMNode::getTfs()
 {
   tf2_ros::Buffer tf_buffer(this->get_clock());
-  tf2_ros::TransformListener tf_listener(tf_buffer);
+  tf2_ros::TransformListener tf_listener(tf_buffer, shared_from_this(), false);
 
   // Base to laser tf
   geometry_msgs::msg::TransformStamped base2laser_msg;
@@ -839,7 +839,7 @@ void SLAMNode::broadcastTfs()
   try
   {
     // Get odom to base transformation
-    odom2base_msg = tf_buffer.lookupTransform(params_.odom_frame_id_, params_.base_frame_id_, rclcpp::Time(0), rclcpp::Duration(300000000));
+    odom2base_msg = tf_buffer.lookupTransform(params_.odom_frame_id_, params_.base_frame_id_, rclcpp::Time(0), rclcpp::Duration(std::chrono::nanoseconds(300000000)));
 
     tf2::Stamped<tf2::Transform> odom2base_tf, base2map_tf, odom2map_tf;
     tf2::fromMsg(odom2base_msg, odom2base_tf);

@@ -6,6 +6,7 @@ include(CheckLanguage)
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 14)
 endif()
+set(CMAKE_BUILD_TYPE Release)
 
 # General packages
 find_package(ament_cmake REQUIRED)
