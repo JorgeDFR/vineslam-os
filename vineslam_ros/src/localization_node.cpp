@@ -274,48 +274,48 @@ void LocalizationNode::loadParameters(Parameters& params)
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "pf.n_particles";
-  this->declare_parameter<double>(param, 0.0);
+  this->declare_parameter<int>(param, 300);
   if (!this->get_parameter(param, params.number_particles_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "pf.sigma_xx";
-  this->declare_parameter<double>(param, 0.0);
+  this->declare_parameter<double>(param, 0.2);
   if (!this->get_parameter(param, params.sigma_xx_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "pf.sigma_yy";
-  this->declare_parameter<double>(param, 0.0);
+  this->declare_parameter<double>(param, 0.5);
   if (!this->get_parameter(param, params.sigma_yy_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "pf.sigma_zz";
-  this->declare_parameter<double>(param, 0.0);
+  this->declare_parameter<double>(param, 0.1);
   if (!this->get_parameter(param, params.sigma_zz_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "pf.sigma_RR";
-  this->declare_parameter<double>(param, 0.0);
+  this->declare_parameter<double>(param, 0.1);
   if (!this->get_parameter(param, params.sigma_RR_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "pf.sigma_PP";
-  this->declare_parameter<double>(param, 0.0);
+  this->declare_parameter<double>(param, 0.1);
   if (!this->get_parameter(param, params.sigma_PP_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "pf.sigma_YY";
-  this->declare_parameter<double>(param, 0.0);
+  this->declare_parameter<double>(param, 1.0);
   if (!this->get_parameter(param, params.sigma_YY_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
-
+  
   params_.topological_map_input_file_ = params.topological_map_folder_ + "map.xml";
   params_.map_output_folder_ = params.topological_map_folder_ + "output_map/";
   params_.grid_map_files_folder_ = params.topological_map_folder_ + "nodes/";
