@@ -15,7 +15,7 @@ def generate_launch_description():
     # VineSLAM node
     vineslam = Node(
         package='vineslam_ros',
-        node_executable='slam_node',
+        executable='slam_node',
         name='slam_node',
         parameters=[params],
         namespace=NAMESPACE,
@@ -33,7 +33,7 @@ def generate_launch_description():
     # Rviz
     rviz = Node(
         package='rviz2',
-        node_executable='rviz2',
+        executable='rviz2',
         name='rviz2',
         arguments=['-d', rviz_path, '--ros-args', '--log-level', 'INFO'],
     )

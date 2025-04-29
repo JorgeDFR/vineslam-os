@@ -106,31 +106,31 @@ void LocalizationNode::loadParameters(Parameters& params)
  
   // Load params
   param = "lidar_sensor_frame";
-  this->declare_parameter<std::string>(param, "");
+  this->declare_parameter<std::string>(param, "lidar3d");
   if (!this->get_parameter(param, params.lidar_sensor_frame_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "world_frame_id";
-  this->declare_parameter<std::string>(param, "");
+  this->declare_parameter<std::string>(param, "map");
   if (!this->get_parameter(param, params.world_frame_id_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "base_frame_id";
-  this->declare_parameter<std::string>(param, "");
+  this->declare_parameter<std::string>(param, "base_link");
   if (!this->get_parameter(param, params.base_frame_id_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "odom_frame_id";
-  this->declare_parameter<std::string>(param, "");
+  this->declare_parameter<std::string>(param, "odom");
   if (!this->get_parameter(param, params.odom_frame_id_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "imu_sensor_frame";
-  this->declare_parameter<std::string>(param, "");
+  this->declare_parameter<std::string>(param, "imu_link");
   if (!this->get_parameter(param, params.imu_sensor_frame_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
@@ -208,25 +208,25 @@ void LocalizationNode::loadParameters(Parameters& params)
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "robot_dimensions.x";
-  this->declare_parameter<double>(param, 0.0);
+  this->declare_parameter<double>(param, 0.5);
   if (!this->get_parameter(param, params.robot_dim_x_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "robot_dimensions.y";
-  this->declare_parameter<double>(param, 0.0);
+  this->declare_parameter<double>(param, 0.5);
   if (!this->get_parameter(param, params.robot_dim_y_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "robot_dimensions.z";
-  this->declare_parameter<double>(param, 0.0);
+  this->declare_parameter<double>(param, 0.5);
   if (!this->get_parameter(param, params.robot_dim_z_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "initialization_type";
-  this->declare_parameter<std::string>(param, "");
+  this->declare_parameter<int>(param, 0);
   if (!this->get_parameter(param, params.initialization_type_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
@@ -238,13 +238,13 @@ void LocalizationNode::loadParameters(Parameters& params)
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "multilayer_mapping.grid_map.height";
-  this->declare_parameter<double>(param, 0.0);
+  this->declare_parameter<double>(param, 30.0);
   if (!this->get_parameter(param, params.gridmap_height_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
   }
   param = "multilayer_mapping.grid_map.resolution";
-  this->declare_parameter<double>(param, 0.0);
+  this->declare_parameter<double>(param, 0.25);
   if (!this->get_parameter(param, params.gridmap_resolution_))
   {
     RCLCPP_WARN(this->get_logger(), "%s not found.", param.c_str());
@@ -367,7 +367,7 @@ void LocalizationNode::loadMaps()
 void LocalizationNode::getTfs()
 {
   tf2_ros::Buffer tf_buffer(this->get_clock());
-  tf2_ros::TransformListener tf_listener(tf_buffer, shared_from_this(), false);
+  tf2_ros::TransformListener tf_listener(tf_buffer);
 
   // Base to laser tf
   geometry_msgs::msg::TransformStamped base2laser_msg;
